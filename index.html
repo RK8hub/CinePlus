@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CinePlus+ Premium · Beneficios</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f2f2f5;--surface:#fff;--ink:#1b1a1f;--muted:#5d5b66;--line:#e1dfe6;
+  --accent:#b5121c;--accent-ink:#fff;--soft:#fbe3e5;--ok:#1f7a4d;--warn-bg:#fff3d6;--warn-ink:#6b4a00;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#15141a;--surface:#1f1e26;--ink:#f1f0f5;--muted:#a5a3b0;--line:#33313c;--accent:#ff5560;--accent-ink:#1a0608;--soft:#3a1b20;--ok:#5fd39a;--warn-bg:#3a2e10;--warn-ink:#ffd98a}
+}
+:root[data-theme="dark"]{--bg:#15141a;--surface:#1f1e26;--ink:#f1f0f5;--muted:#a5a3b0;--line:#33313c;--accent:#ff5560;--accent-ink:#1a0608;--soft:#3a1b20;--ok:#5fd39a;--warn-bg:#3a2e10;--warn-ink:#ffd98a}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 "Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","Instrument Sans",system-ui,sans-serif;margin:0;line-height:1.1;letter-spacing:-.01em}
+.wrap{max-width:1120px;margin:0 auto;padding:20px 16px 48px}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+.top{display:grid;gap:20px;grid-template-columns:1fr;align-items:center;margin-bottom:20px}
+@media(min-width:860px){.top{grid-template-columns:minmax(0,380px) 1fr;gap:36px}}
+.pass{position:relative;background:var(--accent);color:var(--accent-ink);border-radius:18px;padding:26px 24px 22px;min-height:210px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.pass::before,.pass::after{content:"";position:absolute;top:50%;width:26px;height:26px;border-radius:50%;background:var(--bg);transform:translateY(-50%)}
+.pass::before{left:-13px}.pass::after{right:-13px}
+.pass .tier{font-weight:600;font-size:14px;opacity:.9}
+.pass h1{font-size:clamp(2.2rem,6vw,3rem);font-weight:800}
+.pass .stub{border-top:2px dashed color-mix(in srgb,var(--accent-ink) 45%,transparent);padding-top:12px;display:flex;justify-content:space-between;font-size:14px;font-weight:500}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:560px){.kpis{grid-template-columns:repeat(4,1fr)}}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px}
+.kpi b{display:block;font:800 1.7rem/1.1 "Bricolage Grotesque",sans-serif}
+.kpi span{color:var(--muted);font-size:13.5px}
+.kpi.hot b{color:var(--accent)}
+
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin:26px 0 14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 15px;font-weight:500;font-size:14.5px}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.count{color:var(--muted);font-size:14px}
+
+.layout{display:grid;gap:20px;grid-template-columns:1fr}
+@media(min-width:960px){.layout{grid-template-columns:minmax(0,1fr) 320px;align-items:start}}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.card[hidden]{display:none}
+.card .row{display:flex;justify-content:space-between;gap:8px;align-items:center}
+.tag{font-size:12.5px;font-weight:600;padding:2px 9px;border-radius:999px;background:var(--soft);color:var(--accent)}
+.tag.d{background:color-mix(in srgb,var(--ok) 16%,transparent);color:var(--ok)}
+.card h3{font-size:1.12rem}
+.card p{margin:0;color:var(--muted);font-size:14.5px}
+.card details{margin-top:auto;border-top:1px solid var(--line);padding-top:8px}
+.card summary{cursor:pointer;font-weight:600;font-size:14px;color:var(--accent);list-style:none}
+.card summary::-webkit-details-marker{display:none}
+.card summary::before{content:"+ ";font-weight:800}
+.card details[open] summary::before{content:"− "}
+.card ul{margin:8px 0 0;padding-left:18px;color:var(--muted);font-size:14px}
+.card li{margin:3px 0}
+
+.side{display:grid;gap:12px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px}
+.panel h2{font-size:1.15rem;margin-bottom:10px}
+.panel ol,.panel ul{margin:0;padding-left:20px;font-size:14.5px;color:var(--muted)}
+.panel li{margin:5px 0}
+.warn{background:var(--warn-bg);color:var(--warn-ink);border-color:transparent}
+.warn p{margin:6px 0 0;font-size:14.5px}
+.warn b{font-weight:600}
+.days{font:800 2.4rem/1 "Bricolage Grotesque",sans-serif;color:var(--accent)}
+.foot{margin-top:28px;color:var(--muted);font-size:13px}
+@media(prefers-reduced-motion:no-preference){.card{transition:border-color .15s}.card:hover{border-color:var(--accent)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section class="top" aria-label="Resumen">
+  <div class="pass">
+    <div class="tier">Cinemark Nicaragua</div>
+    <h1>CinePlus+<br>Premium</h1>
+    <div class="stub"><span id="p-valid"></span><span id="p-price"></span></div>
+  </div>
+  <div class="kpis" id="kpis"></div>
+</section>
+
+<div class="bar">
+  <div class="chips" role="group" aria-label="Filtrar beneficios">
+    <button class="chip" data-f="todos" aria-pressed="true">Todos</button>
+    <button class="chip" data-f="taquilla" aria-pressed="false">Taquilla</button>
+    <button class="chip" data-f="dulceria" aria-pressed="false">Dulcería</button>
+    <button class="chip" data-f="cumple" aria-pressed="false">Cumpleaños</button>
+  </div>
+  <span class="count" id="count" aria-live="polite"></span>
+</div>
+
+<p class="foot" id="status" role="status" style="margin:0 0 12px">Cargando beneficios…</p>
+
+<div class="layout">
+  <main class="grid" id="grid"></main>
+
+  <aside class="side">
+    <div class="panel">
+      <h2>Vigencia de las promociones</h2>
+      <div class="days" id="days">—</div>
+      <p style="margin:6px 0 0;color:var(--muted);font-size:14.5px">días hasta el <span id="v-date"></span>. Cinemark puede cambiar los beneficios durante la vigencia.</p>
+    </div>
+    <div class="panel">
+      <h2>Antes de usarla</h2>
+      <ol>
+        <li>Actívala en cinemarkca.com. Tienes un mes y queda lista 24 horas después.</li>
+        <li>Presenta la tarjeta antes de pagar.</li>
+        <li>Lleva un documento con tu fecha de cumpleaños para el 2x1 de ese mes.</li>
+      </ol>
+    </div>
+    <div class="panel">
+      <h2>Reglas generales</h2>
+      <ul>
+        <li>No se acumula con otras promociones, descuentos o cupones.</li>
+        <li>No aplica en conciertos ni musicales.</li>
+        <li>El cashback no se cambia por efectivo y vence con la tarjeta.</li>
+        <li>Solo sirve en cines Cinemark de Nicaragua.</li>
+        <li>Los combos y descuentos de dulcería no valen en Web, App ni Kioscos.</li>
+      </ul>
+    </div>
+    <div class="panel warn" id="warn" hidden></div>
+  </aside>
+</div>
+
+<p class="foot">Fuente: página CinePlus+ de Cinemark Nicaragua. Consultado el <span id="upd"></span>. Consulta cinemarkca.com para la información vigente.</p>
+</div>
+
+<script>
+function render(DATA){var ITEMS=DATA.items;
+var grid=document.getElementById("grid"),count=document.getElementById("count");
+ITEMS.forEach(function(i){
+  var a=document.createElement("article");a.className="card";a.dataset.c=i.c.join(" ");
+  var tagCls=(i.tag==="Dulcería"||i.tag==="Combo")?"tag d":"tag";
+  a.innerHTML='<div class="row"><span class="'+tagCls+'">'+i.tag+'</span></div><h3>'+i.t+'</h3>'+(i.d?'<p>'+i.d+'</p>':'')+'<details><summary>Condiciones</summary><ul>'+i.r.map(function(x){return"<li>"+x+"</li>"}).join("")+'</ul></details>';
+  grid.appendChild(a);
+});
+function apply(f){
+  var n=0;
+  grid.querySelectorAll(".card").forEach(function(c){
+    var show=f==="todos"||c.dataset.c.split(" ").indexOf(f)>-1;
+    c.hidden=!show;if(show)n++;
+  });
+  count.textContent=n+(n===1?" beneficio":" beneficios");
+}
+document.querySelectorAll(".chip").forEach(function(b){
+  b.addEventListener("click",function(){
+    document.querySelectorAll(".chip").forEach(function(x){x.setAttribute("aria-pressed",x===b)});
+    apply(b.dataset.f);
+  });
+});
+apply("todos");
+var vp=DATA.vigencia.split("-");var end=new Date(+vp[0],+vp[1]-1,+vp[2]),now=new Date();now.setHours(0,0,0,0);
+var left=Math.max(0,Math.round((end-now)/86400000));
+document.getElementById("days").textContent=left;
+var MESES=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+document.getElementById("v-date").textContent=end.getDate()+" de "+MESES[end.getMonth()]+" de "+end.getFullYear();
+var up=DATA.updated.split("-");
+document.getElementById("upd").textContent=(+up[2])+" de "+MESES[+up[1]-1]+" de "+up[0];
+document.getElementById("p-valid").textContent=DATA.validez||"";
+document.getElementById("p-price").textContent=DATA.precio||"";
+document.getElementById("kpis").innerHTML=DATA.kpis.map(function(k){return'<div class="kpi'+(k.hot?" hot":"")+'"><b>'+k.v+'</b><span>'+k.l+'</span></div>'}).join("");
+function fmt(n){return n.toLocaleString("en-US")}
+var w=document.getElementById("warn"),T=DATA.topes||[];
+if(T.length>1){
+  w.hidden=false;
+  w.innerHTML='<h2>Dato por confirmar</h2><p>La página muestra dos topes de cashback distintos: '+T.map(function(t){return"<b>C$"+fmt(t)+"</b>"}).join(" y ")+'.</p>'+(DATA.cashback_pct?'<p>Llegarías al tope gastando unos '+T.map(function(t){return"<b>C$"+fmt(Math.round(t/(DATA.cashback_pct/100)))+"</b> (C$"+fmt(t)+")"}).join(" o ")+'. Confírmalo con Cinemark.</p>':"")+(DATA.tope_nota?'<p>'+DATA.tope_nota+'</p>':"");
+}else if(T.length===1){
+  w.hidden=false;w.className="panel";
+  w.innerHTML='<h2>Tope de cashback</h2><p style="margin:0;color:var(--muted);font-size:14.5px">C$'+fmt(T[0])+(DATA.cashback_pct?', que alcanzas gastando unos C$'+fmt(Math.round(T[0]/(DATA.cashback_pct/100)))+".":".")+'</p>';
+}
+}
+
+/* ===== Carga en vivo desde el Content API de Cinemark ===== */
+var API="https://www.cinemarkca.com/api/content/spaces/nicaragua/types/posts/entries";
+var CALLS={taquilla:["cineplus/beneficios","taquilla"],dulceria:["cineplus/beneficios","dulceria"],terminos:["cineplus/terminos-de-uso","terminos"]};
+var MES=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+var RELLENO=/(promociones descritas|tienes un mes para|actívala en|recuerda activar|si aún no tienes activa|debes tener tu tarjeta|para gozar de los demás)/i;
+var NO_DESC=/^(menciona|aplica|debes|promoción|precio|no |el beneficio|para )/i;
+function clean(t){return String(t).replace(/[\s\u00a0]+/g," ").trim()}
+function sents(t){return clean(t).split(/(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚÑ¿¡])/).filter(Boolean)}
+function doc(h){return new DOMParser().parseFromString(h||"","text/html")}
+function lines(h){var o=[];doc(h).querySelectorAll("p,li").forEach(function(e){if(e.tagName==="P"||!e.querySelector("p"))o=o.concat(sents(e.textContent))});return o}
+function text(h){return clean(Array.prototype.map.call(doc(h).body.querySelectorAll("p,li"),function(e){return e.textContent}).join(" "))}
+function first(re,t){var m=re.exec(t);return m?m[1]:null}
+function fechaEs(iso){var p=iso.slice(0,10).split("-");return(+p[2])+" de "+MES[+p[1]-1]+" de "+p[0]}
+function build(raw){
+  var terms=raw.terminos.map(function(e){return text(e.fields.description)}).join(" ");
+  var ben=raw.taquilla.concat(raw.dulceria).map(function(e){return text(e.fields.description)}).join(" ");
+  var pct=first(/(\d+(?:\.\d+)?)\s*%\s*de\s*cash\s?back/i,terms);pct=pct?parseFloat(pct):null;
+  var items=[];
+  [["taquilla",raw.taquilla],["dulceria",raw.dulceria]].forEach(function(g){
+    g[1].forEach(function(e){
+      var title=clean(e.meta.name).replace(/\.$/,""),ls=lines(e.fields.description).filter(function(l){return!/:$/.test(l)});
+      var rawT=ls.join(" "),flat=(title+" "+rawT).toLowerCase().replace(/ /g,"");
+      var cash=title.toLowerCase().replace(/ /g,"").indexOf("cashback")>-1||(/^si tienes/i.test(title)&&rawT.toLowerCase().replace(/ /g,"").indexOf("cashback")>-1);
+      if(/^si tienes/i.test(title)&&cash)title=pct?pct+"% de cashback":"Cashback";
+      ls=ls.filter(function(l){return!RELLENO.test(l)});
+      var d="";
+      if(ls.length&&!NO_DESC.test(ls[0]))d=ls.shift();else if(cash)d="Acumulas saldo en cada compra y lo usas en cualquier producto Cinemark.";
+      var cats=[g[0]];if(/cumplea/i.test(title+" "+rawT))cats.push("cumple");if(cash)cats=["taquilla","dulceria"];
+      var tag=cats.indexOf("cumple")>-1?"Cumpleaños":cash?"Cashback":(/^combo/i.test(title)&&title.indexOf("%")<0)?"Combo":g[0]==="dulceria"?"Dulcería":"Taquilla";
+      items.push({t:title,c:cats,tag:tag,d:d,r:ls});
+    });
+  });
+  if(!items.length)throw new Error("La API no devolvió beneficios");
+  var precio=first(/precio de la tarjeta es de US\$\s?(\d+(?:\.\d+)?)/i,terms),anos=first(/validez de un \((\d+)\)\s*año/i,terms);
+  var v=/vigentes del .{0,30}? al (\d{1,2}) de (\w+) de (\d{4})/i.exec(ben),mi=v?MES.indexOf(v[2].toLowerCase()):-1;
+  var now=new Date(),pad=function(n){return(n<10?"0":"")+n};
+  var vig=v&&mi>-1?v[3]+"-"+pad(mi+1)+"-"+pad(+v[1]):now.getFullYear()+"-12-31";
+  var fu=[];
+  [["los beneficios",raw.taquilla.concat(raw.dulceria)],["los términos de uso",raw.terminos]].forEach(function(g){
+    g[1].forEach(function(e){
+      var re=/(?:acumulable de(?: hasta)?|dulcería hasta|cash\s?back[^.]{0,80}?hasta)\s*c\$\s*(\d+)/gi,m,t=text(e.fields.description);
+      while((m=re.exec(t)))fu.push({v:+m[1],n:g[0],d:e.meta.updated_at.slice(0,10)});
+    });
+  });
+  var seen={},uniq=fu.filter(function(f){var k=f.v+f.n;return seen[k]?false:(seen[k]=true)}).sort(function(a,b){return a.d<b.d?1:-1});
+  var topes=[];uniq.forEach(function(f){if(topes.indexOf(f.v)<0)topes.push(f.v)});topes.sort(function(a,b){return a-b});
+  var nota=topes.length>1?uniq.map(function(f){return"C$"+f.v+" aparece en "+f.n+" (actualizado el "+fechaEs(f.d)+")"}).join("; ")+".":"";
+  var up=first(/upgrade de 2D a 3D por C\$\s?(\d+)/i,items.map(function(i){return i.t}).join(" "));
+  var dm=0;items.forEach(function(i){var m=/(\d+)\s*%\s*(?:de\s*)?descuento/i.exec(i.t);if(m)dm=Math.max(dm,+m[1])});
+  var kp=[];if(pct)kp.push({v:pct+"%",l:"cashback en taquilla y dulcería",hot:true});
+  kp.push({v:String(items.length),l:"beneficios activos"});if(up)kp.push({v:"C$"+up,l:"para pasar de 2D a 3D"});if(dm)kp.push({v:dm+"%",l:"en combos de dulcería"});
+  return{updated:now.getFullYear()+"-"+pad(now.getMonth()+1)+"-"+pad(now.getDate()),items:items,cashback_pct:pct,
+    precio:precio?"US$"+parseFloat(precio):"",validez:anos?"Válida "+anos+(+anos>1?" años":" año"):"",vigencia:vig,topes:topes,tope_nota:nota,kpis:kp};
+}
+function get(k){
+  var u=API+"?meta.category="+encodeURIComponent(CALLS[k][0])+"&meta.tag="+encodeURIComponent(CALLS[k][1])+"&per_page=100";
+  return fetch(u).then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json()}).then(function(j){return j.entries});
+}
+var CK="cineplus-cache-v1",st=document.getElementById("status");
+function cacheGet(){try{return JSON.parse(localStorage.getItem(CK))}catch(e){return null}}
+function cacheSet(d){try{localStorage.setItem(CK,JSON.stringify(d))}catch(e){}}
+function start(){
+  st.hidden=false;st.textContent="Cargando beneficios…";
+  Promise.all(Object.keys(CALLS).map(get)).then(function(r){
+    var data=build({taquilla:r[0],dulceria:r[1],terminos:r[2]});
+    cacheSet(data);st.hidden=true;render(data);
+  }).catch(function(err){
+    var c=cacheGet();
+    if(c){st.textContent="No se pudo consultar a Cinemark; se muestran los datos guardados el "+fechaEs(c.updated)+".";render(c)}
+    else{st.innerHTML="No se pudieron cargar los beneficios (<span></span>). Revisa tu conexión y reintenta. ";st.firstElementChild.textContent=err.message;
+      var b=document.createElement("button");b.className="chip";b.textContent="Reintentar";b.onclick=start;st.appendChild(b)}
+  });
+}
+start();
+</script>
+</body>
+</html>
